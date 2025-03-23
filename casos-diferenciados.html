@@ -7,6 +7,233 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: rgb(123, 31, 45);
+            --primary-light: rgba(123, 31, 45, 0.1);
+            --primary-medium: rgba(123, 31, 45, 0.6);
+            --text-color: #333;
+            --border-radius: 10px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Estilos para las tarjetas de casos diferenciados */
+        .caso-container {
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            background-color: #fff;
+        }
+        
+        .caso-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .caso-header h2 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+        
+        .caso-header i {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .caso-header .toggle-icon {
+            position: absolute;
+            right: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .caso-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .caso-container.active .caso-content {
+            padding: 1.5rem;
+            max-height: 3000px;
+        }
+        
+        .caso-container.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Estilos para el contenido interno */
+        .caso-intro {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: var(--primary-light);
+            border-radius: var(--border-radius);
+        }
+        
+        .caso-intro-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .caso-intro-text p {
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .caso-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .caso-section {
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .caso-section-header {
+            background-color: var(--primary-medium);
+            color: white;
+            padding: 0.75rem 1rem;
+        }
+        
+        .caso-section-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .caso-section-header i {
+            margin-right: 0.75rem;
+        }
+        
+        .caso-section-content {
+            padding: 1rem;
+        }
+        
+        .caso-lista {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .caso-lista li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .caso-lista li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .caso-lista li i {
+            color: var(--primary-color);
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+        
+        .procedure-list {
+            counter-reset: procedure;
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .procedure-item {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 0.75rem;
+            counter-increment: procedure;
+        }
+        
+        .procedure-item:before {
+            content: counter(procedure);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 25px;
+            height: 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .procedure-item h4 {
+            margin: 0 0 0.25rem 0;
+            color: var(--primary-color);
+        }
+        
+        .procedure-item p {
+            margin: 0;
+        }
+        
+        .caso-nota {
+            display: flex;
+            align-items: flex-start;
+            background-color: var(--primary-light);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-top: 1.5rem;
+        }
+        
+        .caso-nota i {
+            color: var(--primary-color);
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Estilos responsive */
+        @media (max-width: 768px) {
+            .caso-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .caso-intro {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .caso-intro-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="main-container">
@@ -37,7 +264,7 @@
                 <li class="nav-item"><a href="enfoques.html" class="nav-link">Enfoques y Principios</a></li>
                 <li class="nav-item"><a href="responsabilidades.html" class="nav-link">Responsabilidades</a></li>
                 <li class="nav-item"><a href="disposiciones.html" class="nav-link">Disposiciones de Atención</a></li>
-                <li class="nav-item"><a href="casos-diferenciados.html" class="nav-link">Casos Diferenciados</a></li>
+                <li class="nav-item"><a href="casos-diferenciados.html" class="nav-link active">Casos Diferenciados</a></li>
                 <li class="nav-item"><a href="asistencia-juridica.html" class="nav-link">Asistencia Jurídica</a></li>
                 <li class="nav-item"><a href="servicios.html" class="nav-link">Servicios de Atención</a></li>
                 <li class="nav-item"><a href="salud.html" class="nav-link">Servicios de Salud</a></li>
@@ -53,615 +280,419 @@
                 <span>Casos Diferenciados</span>
             </div>
             
-            <h1 class="page-title">Casos Diferenciados</h1>
-            
-            <div class="alert alert-info">
-                <i class="fas fa-info-circle"></i>
-                <p>El Protocolo de Atención Conjunta establece procedimientos específicos para la atención de casos diferenciados, reconociendo que existen situaciones particulares que requieren un abordaje especializado, considerando las características y necesidades específicas de las víctimas y la naturaleza de la violencia.</p>
+            <div class="page-title-container">
+                <h1 class="page-title">Casos Diferenciados</h1>
+                <p class="page-description">El protocolo establece procedimientos específicos para la atención de ciertos grupos en situación de especial vulnerabilidad, garantizando que sus necesidades particulares sean atendidas con enfoque diferencial.</p>
             </div>
+            <br>
+        
             
-            <section class="content-section">
-                <h2 class="section-title"><i class="fas fa-child"></i> Atención a Niñas, Niños y Adolescentes</h2>
-                
-                <div class="caso-intro">
-                    <div class="caso-intro-icon">
-                        <i class="fas fa-child"></i>
-                    </div>
-                    <div class="caso-intro-text">
-                        <p class="text-left">La atención a niñas, niños y adolescentes víctimas de violencia requiere procedimientos específicos, considerando su condición de desarrollo, vulnerabilidad y el interés superior del niño como principio rector. Todos los servicios involucrados deben asegurar un entorno seguro y adecuado para su edad.</p>
-                    </div>
+            <!-- Sección Niñas, Niños y Adolescentes -->
+            <div class="caso-container">
+                <div class="caso-header">
+                    <i class="fas fa-child"></i>
+                    <h2>Atención a Niñas, Niños y Adolescentes</h2>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
                 </div>
-                
-                <div class="casos-grid">
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>Consideraciones Especiales</h3>
+                <div class="caso-content">
+                    <div class="caso-intro">
+                        <div class="caso-intro-icon">
+                            <i class="fas fa-child"></i>
                         </div>
-                        <div class="caso-content">
-                            <ul class="caso-lista text-left">
-                                <li>Toda intervención debe priorizar el interés superior del niño, niña o adolescente.</li>
-                                <li>Se debe adaptar la comunicación a su edad y nivel de desarrollo.</li>
-                                <li>Las entrevistas deben realizarse en ambientes amigables, por personal especializado.</li>
-                                <li>Se debe garantizar la presencia de un adulto protector que brinde contención emocional.</li>
-                                <li>En caso de no contar con un adulto protector, debe intervenir la Unidad de Protección Especial (UPE) del MIMP.</li>
-                            </ul>
+                        <div class="caso-intro-text">
+                            <p>La atención a niñas, niños y adolescentes víctimas de violencia requiere procedimientos específicos, considerando su condición de desarrollo, vulnerabilidad y el interés superior del niño como principio rector.</p>
                         </div>
                     </div>
                     
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-clipboard-list"></i>
+                    <div class="caso-grid">
+                        <div class="caso-section">
+                            <div class="caso-section-header">
+                                <h3><i class="fas fa-shield-alt"></i> Consideraciones Especiales</h3>
                             </div>
-                            <h3>Procedimiento Específico</h3>
+                            <div class="caso-section-content">
+                                <ul class="caso-lista">
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Priorizar el interés superior del niño, niña o adolescente</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Adaptar la comunicación a su edad y nivel de desarrollo</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Realizar entrevistas en ambientes amigables</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Garantizar la presencia de un adulto protector</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Intervención de la UPE del MIMP cuando sea necesario</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="caso-content">
-                            <div class="caso-pasos">
-                                <div class="paso-item">
-                                    <div class="paso-numero">1</div>
-                                    <div class="paso-detalle">
+                        
+                        <div class="caso-section">
+                            <div class="caso-section-header">
+                                <h3><i class="fas fa-clipboard-list"></i> Procedimiento Específico</h3>
+                            </div>
+                            <div class="caso-section-content">
+                                <ul class="procedure-list">
+                                    <li class="procedure-item">
                                         <h4>Detección</h4>
-                                        <p class="text-left">Cualquier persona o institución que conozca un caso de violencia contra NNA debe comunicarlo inmediatamente a la DEMUNA, CEM, Comisaría, Fiscalía o Juzgado de Familia.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">2</div>
-                                    <div class="paso-detalle">
+                                        <p>Comunicación inmediata a DEMUNA, CEM, Comisaría, Fiscalía o Juzgado</p>
+                                    </li>
+                                    <li class="procedure-item">
                                         <h4>Entrevista Única</h4>
-                                        <p class="text-left">Se debe aplicar la técnica de entrevista única en Cámara Gesell o sala de entrevista única, con participación del Fiscal de Familia, psicólogo forense y otros operadores relevantes.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">3</div>
-                                    <div class="paso-detalle">
+                                        <p>En Cámara Gesell con Fiscal de Familia y psicólogo</p>
+                                    </li>
+                                    <li class="procedure-item">
                                         <h4>Evaluación Psicológica</h4>
-                                        <p class="text-left">Realizada por el Instituto de Medicina Legal o establecimiento de salud, utilizando protocolos específicos para NNA.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">4</div>
-                                    <div class="paso-detalle">
+                                        <p>Con protocolos específicos para NNA</p>
+                                    </li>
+                                    <li class="procedure-item">
                                         <h4>Evaluación de Riesgo</h4>
-                                        <p class="text-left">Aplicación de la Ficha de Valoración de Riesgo para NNA, considerando factores específicos de vulnerabilidad.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">5</div>
-                                    <div class="paso-detalle">
+                                        <p>Aplicación de la Ficha de Valoración de Riesgo</p>
+                                    </li>
+                                    <li class="procedure-item">
                                         <h4>Medidas de Protección</h4>
-                                        <p class="text-left">Dictadas por el Juzgado de Familia, priorizando la separación del agresor y no de la víctima de su entorno familiar.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">6</div>
-                                    <div class="paso-detalle">
-                                        <h4>Atención en Salud</h4>
-                                        <p class="text-left">Evaluación integral de salud física y mental, con tratamiento especializado según las necesidades identificadas.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">7</div>
-                                    <div class="paso-detalle">
-                                        <h4>Seguimiento</h4>
-                                        <p class="text-left">Realizado por la DEMUNA, CEM o UPE, verificando el cumplimiento de las medidas de protección y la recuperación integral.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caso-nota">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                <p class="text-left">En casos donde el agresor es uno de los progenitores o responsables del cuidado, se debe coordinar con la Unidad de Protección Especial (UPE) para la evaluación de desprotección familiar y la aplicación de medidas de protección administrativas.</p>
+                                        <p>Priorizando la separación del agresor, no de la víctima</p>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            
-            <section class="content-section">
-                <h2 class="section-title"><i class="fas fa-user-friends"></i> Atención a Mujeres Víctimas de Violencia de Pareja</h2>
-                <div class="caso-intro">
-                    <div class="caso-intro-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
-                    <div class="caso-intro-text">
-                        <p class="text-left">La violencia ejercida por la pareja o ex pareja presenta características particulares que requieren un abordaje específico, considerando el ciclo de la violencia, la dependencia emocional y económica, y los factores de riesgo asociados.</p>
-                    </div>
-                </div>
-                
-                <div class="casos-grid">
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>Consideraciones Especiales</h3>
-                        </div>
-                        <div class="caso-content">
-                            <ul class="caso-lista text-left">
-                                <li>Reconocer las dinámicas de poder y control en las relaciones de pareja.</li>
-                                <li>Comprender el ciclo de la violencia y sus fases (tensión, explosión, reconciliación).</li>
-                                <li>Identificar factores de riesgo específicos como antecedentes de violencia, amenazas de muerte, celos excesivos, etc.</li>
-                                <li>Considerar la dependencia emocional y económica que puede dificultar la ruptura.</li>
-                                <li>Respetar las decisiones de la mujer, sin culpabilizarla ni presionarla.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-clipboard-list"></i>
-                            </div>
-                            <h3>Procedimiento Específico</h3>
-                        </div>
-                        <div class="caso-content">
-                            <div class="caso-pasos">
-                                <div class="paso-item">
-                                    <div class="paso-numero">1</div>
-                                    <div class="paso-detalle">
-                                        <h4>Valoración de Riesgo</h4>
-                                        <p class="text-left">Aplicación de la Ficha de Valoración de Riesgo para mujeres víctimas de violencia de pareja, identificando factores de riesgo de feminicidio.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">2</div>
-                                    <div class="paso-detalle">
-                                        <h4>Plan de Seguridad</h4>
-                                        <p class="text-left">Elaboración de un plan de seguridad personalizado, considerando rutas de escape, documentos importantes, redes de apoyo, etc.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">3</div>
-                                    <div class="paso-detalle">
-                                        <h4>Medidas de Protección</h4>
-                                        <p class="text-left">Solicitud y otorgamiento de medidas de protección adecuadas al nivel de riesgo, como retiro del agresor, prohibición de acercamiento, etc.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">4</div>
-                                    <div class="paso-detalle">
-                                        <h4>Atención Psicológica</h4>
-                                        <p class="text-left">Intervención especializada para la recuperación emocional, abordando la dependencia emocional y el trauma.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">5</div>
-                                    <div class="paso-detalle">
-                                        <h4>Empoderamiento Económico</h4>
-                                        <p class="text-left">Vinculación con programas de autonomía económica, formación laboral y generación de ingresos.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">6</div>
-                                    <div class="paso-detalle">
-                                        <h4>Fortalecimiento de Redes</h4>
-                                        <p class="text-left">Identificación y activación de redes de apoyo familiar y comunitario.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">7</div>
-                                    <div class="paso-detalle">
-                                        <h4>Seguimiento</h4>
-                                        <p class="text-left">Monitoreo continuo del caso, con contactos periódicos para verificar la situación de la víctima y el cumplimiento de las medidas de protección.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caso-nota">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                <p class="text-left">En casos de riesgo severo, se debe contemplar la posibilidad de traslado a un Hogar de Refugio Temporal, coordinando con el CEM o la instancia correspondiente, garantizando la confidencialidad de la ubicación.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="content-section">
-                <h2 class="section-title"><i class="fas fa-venus"></i> Atención a Víctimas de Violencia Sexual</h2>
-                
-                <div class="caso-intro">
-                    <div class="caso-intro-icon">
-                        <i class="fas fa-venus"></i>
-                    </div>
-                    <div class="caso-intro-text">
-                        <p class="text-left">La violencia sexual requiere un abordaje integral y especializado, considerando el impacto físico, psicológico y social, así como la prevención de embarazos no deseados, infecciones de transmisión sexual y otros riesgos asociados.</p>
-                    </div>
-                </div>
-                
-                <div class="casos-grid">
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>Consideraciones Especiales</h3>
-                        </div>
-                        <div class="caso-content">
-                            <ul class="caso-lista text-left">
-                                <li>La atención debe ser inmediata, considerando las primeras 72 horas como críticas para la atención médica y recolección de evidencias.</li>
-                                <li>Se debe garantizar privacidad y confidencialidad en todo momento.</li>
-                                <li>La víctima tiene derecho a estar acompañada por una persona de su confianza durante los procedimientos, si así lo desea.</li>
-                                <li>No se debe exigir la denuncia como requisito para recibir atención médica.</li>
-                                <li>Se debe evitar cualquier cuestionamiento o juicio sobre la conducta de la víctima.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-clipboard-list"></i>
-                            </div>
-                            <h3>Procedimiento Específico</h3>
-                        </div>
-                        <div class="caso-content">
-                            <div class="caso-pasos">
-                                <div class="paso-item">
-                                    <div class="paso-numero">1</div>
-                                    <div class="paso-detalle">
-                                        <h4>Atención Médica de Emergencia</h4>
-                                        <p class="text-left">Estabilización y evaluación física completa, con registro detallado de lesiones y hallazgos relevantes.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">2</div>
-                                    <div class="paso-detalle">
-                                        <h4>Kit de Emergencia</h4>
-                                        <p class="text-left">Aplicación del Kit de Emergencia para casos de violación sexual, incluyendo anticoncepción oral de emergencia, profilaxis para ITS, profilaxis para VIH y vacuna contra Hepatitis B, todos dentro de plazos específicos.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">3</div>
-                                    <div class="paso-detalle">
-                                        <h4>Toma de Muestras</h4>
-                                        <p class="text-left">Recolección y preservación de evidencias biológicas, siguiendo la cadena de custodia establecida.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">4</div>
-                                    <div class="paso-detalle">
-                                        <h4>Contención Emocional</h4>
-                                        <p class="text-left">Intervención en crisis por profesional de psicología, facilitando la expresión emocional y reduciendo el impacto traumático inicial.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">5</div>
-                                    <div class="paso-detalle">
-                                        <h4>Denuncia</h4>
-                                        <p class="text-left">Asesoría sobre el derecho a denunciar y acompañamiento para realizarla, respetando la decisión de la víctima.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">6</div>
-                                    <div class="paso-detalle">
-                                        <h4>Tratamiento Psicológico</h4>
-                                        <p class="text-left">Terapia especializada para el trauma por violencia sexual, con enfoque en recuperación y resiliencia.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">7</div>
-                                    <div class="paso-detalle">
-                                        <h4>Seguimiento</h4>
-                                        <p class="text-left">Control médico periódico para evaluar salud física (descartar ITS, embarazo, etc.) y continuidad de atención psicológica.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caso-nota">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                <p class="text-left">En caso de niñas y adolescentes menores de 18 años, el personal de salud está obligado a denunciar el hecho ante la Fiscalía Penal o de Familia, independientemente de la voluntad de la víctima o sus familiares.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="content-section">
-                <h2 class="section-title"><i class="fas fa-wheelchair"></i> Atención a Personas con Discapacidad</h2>
-                
-                <div class="caso-intro">
-                    <div class="caso-intro-icon">
-                        <i class="fas fa-wheelchair"></i>
-                    </div>
-                    <div class="caso-intro-text">
-                        <p class="text-left">Las personas con discapacidad enfrentan barreras adicionales para acceder a la justicia y los servicios de atención, lo que requiere ajustes razonables y medidas específicas para garantizar su participación plena y efectiva.</p>
-                    </div>
-                </div>
-                
-                <div class="casos-grid">
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>Consideraciones Especiales</h3>
-                        </div>
-                        <div class="caso-content">
-                            <ul class="caso-lista text-left">
-                                <li>Reconocer la capacidad jurídica de todas las personas con discapacidad, brindando apoyos para la toma de decisiones cuando sea necesario.</li>
-                                <li>Garantizar la accesibilidad física, comunicacional e informativa en todos los servicios e instalaciones.</li>
-                                <li>Implementar ajustes de procedimiento según el tipo de discapacidad (física, sensorial, intelectual, psicosocial).</li>
-                                <li>Proporcionar información en formatos accesibles (braille, lengua de señas, lectura fácil, etc.).</li>
-                                <li>Asegurar que las personas con discapacidad sean tratadas con dignidad y respeto, evitando prejuicios o estereotipos.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-clipboard-list"></i>
-                            </div>
-                            <h3>Procedimiento Específico</h3>
-                        </div>
-                        <div class="caso-content">
-                            <div class="caso-pasos">
-                                <div class="paso-item">
-                                    <div class="paso-numero">1</div>
-                                    <div class="paso-detalle">
-                                        <h4>Identificación de Barreras</h4>
-                                        <p class="text-left">Determinar qué tipo de barreras y ajustes requiere la persona según su tipo de discapacidad y necesidades específicas.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">2</div>
-                                    <div class="paso-detalle">
-                                        <h4>Provisión de Apoyos</h4>
-                                        <p class="text-left">Asignar los apoyos necesarios (intérprete de lengua de señas, facilitador, material en braille, entre otros) para garantizar la comunicación efectiva.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">3</div>
-                                    <div class="paso-detalle">
-                                        <h4>Entrevista Adaptada</h4>
-                                        <p class="text-left">Realizar la entrevista y toma de declaración con los ajustes necesarios, respetando el tiempo, ritmo y forma de comunicación de la persona.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">4</div>
-                                    <div class="paso-detalle">
-                                        <h4>Evaluación Especializada</h4>
-                                        <p class="text-left">Coordinar evaluaciones psicológicas y médicas adaptadas a las necesidades específicas de la persona con discapacidad.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">5</div>
-                                    <div class="paso-detalle">
-                                        <h4>Medidas de Protección</h4>
-                                        <p class="text-left">Solicitar medidas de protección inmediatas considerando las particularidades del caso y las necesidades específicas de la persona.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">6</div>
-                                    <div class="paso-detalle">
-                                        <h4>Coordinación Interinstitucional</h4>
-                                        <p class="text-left">Articular con CONADIS, OMAPED y otras instituciones especializadas para garantizar una atención integral.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">7</div>
-                                    <div class="paso-detalle">
-                                        <h4>Seguimiento Adaptado</h4>
-                                        <p class="text-left">Implementar mecanismos de seguimiento que consideren las particularidades de la persona, facilitando su participación continua.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caso-nota">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                <p class="text-left">Cuando la víctima presenta discapacidad intelectual o psicosocial, es fundamental contar con profesionales capacitados en técnicas de entrevista especializada para estos casos, evitando la revictimización y garantizando la validez del testimonio.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="content-section">
-                <h2 class="section-title"><i class="fas fa-users"></i> Atención a Población Indígena</h2>
-                
-                <div class="caso-intro">
-                    <div class="caso-intro-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="caso-intro-text">
-                        <p class="text-left">La atención a víctimas de violencia pertenecientes a pueblos indígenas debe considerar la interculturalidad como eje transversal, respetando la diversidad cultural y promoviendo un diálogo horizontal entre diferentes visiones del mundo.</p>
-                    </div>
-                </div>
-                
-                <div class="casos-grid">
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>Consideraciones Especiales</h3>
-                        </div>
-                        <div class="caso-content">
-                            <ul class="caso-lista text-left">
-                                <li>Reconocer y respetar la diversidad cultural, costumbres y formas organizativas de los pueblos indígenas.</li>
-                                <li>Garantizar la presencia de intérpretes de lenguas indígenas cuando sea necesario.</li>
-                                <li>Considerar las particularidades culturales al momento de evaluar el contexto de la violencia.</li>
-                                <li>Respetar la jurisdicción especial indígena, articulando con autoridades tradicionales cuando corresponda.</li>
-                                <li>Evitar imponer visiones etnocéntricas o prejuicios culturales durante el proceso de atención.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-clipboard-list"></i>
-                            </div>
-                            <h3>Procedimiento Específico</h3>
-                        </div>
-                        <div class="caso-content">
-                            <div class="caso-pasos">
-                                <div class="paso-item">
-                                    <div class="paso-numero">1</div>
-                                    <div class="paso-detalle">
-                                        <h4>Identificación Cultural</h4>
-                                        <p class="text-left">Determinar la pertenencia étnica, comunidad y lengua de la persona para definir el enfoque intercultural a aplicar.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">2</div>
-                                    <div class="paso-detalle">
-                                        <h4>Facilitación Lingüística</h4>
-                                        <p class="text-left">Convocar a un intérprete oficial de la lengua correspondiente, registrado en el Ministerio de Cultura, para facilitar la comunicación.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">3</div>
-                                    <div class="paso-detalle">
-                                        <h4>Entrevista Intercultural</h4>
-                                        <p class="text-left">Realizar la entrevista considerando elementos culturales, dando tiempo para explicaciones desde la cosmovisión propia.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">4</div>
-                                    <div class="paso-detalle">
-                                        <h4>Coordinación con Autoridades Indígenas</h4>
-                                        <p class="text-left">Establecer comunicación con las autoridades tradicionales de la comunidad, si la víctima lo solicita o consiente.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">5</div>
-                                    <div class="paso-detalle">
-                                        <h4>Atención Médica Intercultural</h4>
-                                        <p class="text-left">Coordinar con establecimientos de salud que cuenten con enfoque intercultural, respetando prácticas tradicionales no dañinas.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">6</div>
-                                    <div class="paso-detalle">
-                                        <h4>Medidas de Protección Contextualizadas</h4>
-                                        <p class="text-left">Solicitar medidas que consideren el contexto cultural y geográfico de la comunidad.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">7</div>
-                                    <div class="paso-detalle">
-                                        <h4>Seguimiento Culturalmente Pertinente</h4>
-                                        <p class="text-left">Establecer mecanismos de seguimiento adaptados a la realidad cultural y geográfica de la comunidad.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caso-nota">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                <p class="text-left">En comunidades indígenas alejadas, debe considerarse la implementación de brigadas móviles interculturales que puedan desplazarse para brindar atención in situ, con la participación de personal bilingüe y culturalmente sensible.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="content-section">
-                <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> Necesidad de Capacitación Especializada</h2>
-                
-                <div class="caso-intro">
-                    <div class="caso-intro-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <div class="caso-intro-text">
-                        <p class="text-left">La atención efectiva a víctimas de violencia, especialmente en casos diferenciados, requiere de personal debidamente capacitado con competencias técnicas y humanas para abordar cada situación con sensibilidad y profesionalismo.</p>
-                    </div>
-                </div>
-                
-                <div class="casos-grid">
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <h3>Áreas de Capacitación</h3>
-                        </div>
-                        <div class="caso-content">
-                            <ul class="caso-lista text-left">
-                                <li><strong>Enfoque de Género:</strong> Comprender las desigualdades estructurales y cómo estas influyen en la violencia contra las mujeres.</li>
-                                <li><strong>Derechos de la Niñez:</strong> Conocer el marco legal y protocolos específicos para la protección de niñas, niños y adolescentes.</li>
-                                <li><strong>Interculturalidad:</strong> Desarrollar competencias para el diálogo intercultural y la atención con pertinencia cultural.</li>
-                                <li><strong>Atención a Discapacidad:</strong> Manejar técnicas y ajustes razonables para la atención a personas con diferentes tipos de discapacidad.</li>
-                                <li><strong>Técnicas de Entrevista:</strong> Dominar metodologías no revictimizantes para la toma de declaraciones y entrevistas.</li>
-                                <li><strong>Primeros Auxilios Psicológicos:</strong> Aplicar técnicas de contención emocional y manejo de crisis.</li>
-                                <li><strong>Marco Normativo:</strong> Conocer la legislación vigente y su aplicación práctica en casos de violencia.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="caso-card">
-                        <div class="caso-header">
-                            <div class="caso-icon">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <h3>Estrategias de Capacitación</h3>
-                        </div>
-                        <div class="caso-content">
-                            <div class="caso-pasos">
-                                <div class="paso-item">
-                                    <div class="paso-numero">1</div>
-                                    <div class="paso-detalle">
-                                        <h4>Diagnóstico de Necesidades</h4>
-                                        <p class="text-left">Identificar las brechas de conocimiento y habilidades del personal de las diferentes instituciones.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">2</div>
-                                    <div class="paso-detalle">
-                                        <h4>Plan Formativo</h4>
-                                        <p class="text-left">Diseñar programas formativos teórico-prácticos, con metodologías participativas y evaluación de aprendizajes.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">3</div>
-                                    <div class="paso-detalle">
-                                        <h4>Capacitación Continua</h4>
-                                        <p class="text-left">Implementar ciclos formativos regulares para la actualización permanente, considerando la rotación de personal.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">4</div>
-                                    <div class="paso-detalle">
-                                        <h4>Comunidades de Práctica</h4>
-                                        <p class="text-left">Crear espacios de intercambio de experiencias y aprendizajes entre profesionales de diferentes instituciones.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">5</div>
-                                    <div class="paso-detalle">
-                                        <h4>Supervisión Técnica</h4>
-                                        <p class="text-left">Establecer mecanismos de acompañamiento y supervisión para garantizar la aplicación de lo aprendido.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">6</div>
-                                    <div class="paso-detalle">
-                                        <h4>Alianzas Académicas</h4>
-                                        <p class="text-left">Establecer convenios con universidades y centros especializados para la formación y certificación del personal.</p>
-                                    </div>
-                                </div>
-                                <div class="paso-item">
-                                    <div class="paso-numero">7</div>
-                                    <div class="paso-detalle">
-                                        <h4>Evaluación de Impacto</h4>
-                                        <p class="text-left">Medir periódicamente el impacto de las capacitaciones en la calidad de la atención y la satisfacción de las personas atendidas.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caso-nota">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                <p class="text-left">Todo el personal que atiende a víctimas de violencia, independientemente de su rol o institución, debe recibir capacitación en primeros auxilios psicológicos y prevención de la revictimización como competencias mínimas obligatorias.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <div class="cta-container">
-                <div class="cta-box">
-                    <h3><i class="fas fa-users"></i> Necesidad de Capacitación Especializada</h3>
-                    <p>La atención a casos diferenciados requiere que el personal de las instituciones involucradas reciba capacitación especializada y continua, que les permita desarrollar competencias específicas para cada tipo de caso. Las instituciones que forman parte del Protocolo de Atención Conjunta se comprometen a participar en procesos de formación y actualización permanente, con el fin de mejorar la calidad de atención a las poblaciones con necesidades específicas.</p>
-                    <p>Asimismo, se promoverá la especialización de equipos en cada institución, para garantizar una atención adecuada a la diversidad de casos que se presentan en la región San Martín.</p>
                 </div>
             </div>
+            
+            <!-- Sección Víctimas de Violencia Sexual -->
+            <div class="caso-container">
+                <div class="caso-header">
+                    <i class="fas fa-venus"></i>
+                    <h2>Atención a Víctimas de Violencia Sexual</h2>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="caso-content">
+                    <div class="caso-intro">
+                        <div class="caso-intro-icon">
+                            <i class="fas fa-venus"></i>
+                        </div>
+                        <div class="caso-intro-text">
+                            <p>La atención a víctimas de violencia sexual requiere un abordaje especializado, que considere las características particulares de este tipo de violencia y sus impactos en las víctimas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="caso-grid">
+                        <div class="caso-section">
+                            <div class="caso-section-header">
+                                <h3><i class="fas fa-shield-alt"></i> Consideraciones Especiales</h3>
+                            </div>
+                            <div class="caso-section-content">
+                                <ul class="caso-lista">
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Garantizar privacidad y confidencialidad</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Atención inmediata para preservar evidencias</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Evitar interrogatorios reiterados</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>No emitir juicios de valor</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Kit de emergencia dentro de 72 horas</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="caso-section">
+                            <div class="caso-section-header">
+                                <h3><i class="fas fa-clipboard-list"></i> Procedimiento Específico</h3>
+                            </div>
+                            <div class="caso-section-content">
+                                <ul class="procedure-list">
+                                    <li class="procedure-item">
+                                        <h4>Detección y Reporte</h4>
+                                        <p>Reporte inmediato a PNP, Fiscalía o Juzgado</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Atención de Emergencia</h4>
+                                        <p>Derivación inmediata a establecimiento de salud</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Examen Médico Legal</h4>
+                                        <p>Con consentimiento informado de la víctima</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Medidas de Protección</h4>
+                                        <p>Solicitadas por Fiscalía y dictadas por Juzgado</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Asistencia Legal Gratuita</h4>
+                                        <p>Por CEM o Defensa Pública durante todo el proceso</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección Personas con Discapacidad -->
+            <div class="caso-container">
+                <div class="caso-header">
+                    <i class="fas fa-wheelchair"></i>
+                    <h2>Atención a Personas con Discapacidad</h2>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="caso-content">
+                    <div class="caso-intro">
+                        <div class="caso-intro-icon">
+                            <i class="fas fa-wheelchair"></i>
+                        </div>
+                        <div class="caso-intro-text">
+                            <p>Las personas con discapacidad víctimas de violencia enfrentan barreras adicionales para acceder a servicios de atención, por lo que se requieren ajustes razonables y medidas de accesibilidad que garanticen la igualdad de condiciones en la atención.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="caso-grid">
+                        <div class="caso-section">
+                            <div class="caso-section-header">
+                                <h3><i class="fas fa-shield-alt"></i> Consideraciones Especiales</h3>
+                            </div>
+                            <div class="caso-section-content">
+                                <ul class="caso-lista">
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Garantizar condiciones de accesibilidad física, informativa y actitudinal</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Asegurar la presencia de intérpretes de lengua de señas</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Disponer de información en formatos accesibles</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Reconocer la capacidad jurídica de la persona con discapacidad</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Considerar los posibles vínculos de dependencia con la persona agresora</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="caso-section">
+                            <div class="caso-section-header">
+                                <h3><i class="fas fa-clipboard-list"></i> Procedimiento Específico</h3>
+                            </div>
+                            <div class="caso-section-content">
+                                <ul class="procedure-list">
+                                    <li class="procedure-item">
+                                        <h4>Detección Adaptada</h4>
+                                        <p>Identificación de señales de violencia considerando la situación específica de discapacidad</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Ajustes Razonables</h4>
+                                        <p>Implementación de las adaptaciones necesarias para la comunicación y atención efectiva</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Evaluación de Riesgos</h4>
+                                        <p>Aplicación de la Ficha de Valoración de Riesgo, considerando factores específicos relacionados con la discapacidad</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Apoyos para la Toma de Decisiones</h4>
+                                        <p>Provisión de los apoyos necesarios para que la persona pueda comprender las opciones disponibles y tomar decisiones informadas</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Medidas de Protección</h4>
+                                        <p>Consideración de las necesidades específicas de apoyo y asistencia personal al dictar medidas de protección</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección Población Indígena y Comunidades Nativas -->
+            <div class="caso-container">
+                <div class="caso-header">
+                    <i class="fas fa-users"></i>
+                    <h2>Atención a Población Indígena y Comunidades Nativas</h2>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="caso-content">
+                    <div class="caso-intro">
+                        <div class="caso-intro-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="caso-intro-text">
+                            <p>La atención a víctimas de violencia pertenecientes a pueblos indígenas y comunidades nativas requiere un enfoque intercultural, que respete sus prácticas culturales, idioma y cosmovisión, garantizando el acceso a la justicia ordinaria y especial.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="caso-grid">
+                        <div class="caso-section">
+                            <div class="caso-section-header">
+                                <h3><i class="fas fa-shield-alt"></i> Consideraciones Especiales</h3>
+                            </div>
+                            <div class="caso-section-content">
+                                <ul class="caso-lista">
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Garantizar la presencia de intérpretes de lenguas originarias</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Respetar las formas propias de organización y toma de decisiones de la comunidad</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Reconocer la jurisdicción especial indígena, en coordinación con la justicia ordinaria</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Adaptar los procedimientos considerando las prácticas culturales y cosmovisión</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Evitar prejuicios o discriminación basada en estereotipos culturales</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="caso-section">
+                            <div class="caso-section-header">
+                                <h3><i class="fas fa-clipboard-list"></i> Procedimiento Específico</h3>
+                            </div>
+                            <div class="caso-section-content">
+                                <ul class="procedure-list">
+                                    <li class="procedure-item">
+                                        <h4>Facilitación Lingüística</h4>
+                                        <p>Asegurar la presencia de intérpretes oficiales de lenguas originarias</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Coordinación con Autoridades Comunales</h4>
+                                        <p>Establecer contacto con las autoridades tradicionales de la comunidad</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Peritaje Antropológico</h4>
+                                        <p>Solicitar un peritaje antropológico para entender el contexto cultural específico del caso</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Medidas de Protección Culturalmente Adaptadas</h4>
+                                        <p>Desarrollar medidas que consideren la realidad comunitaria y las prácticas culturales existentes</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Atención en Salud con Enfoque Intercultural</h4>
+                                        <p>Integrar prácticas de medicina tradicional con la atención médica convencional</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección Necesidad de Capacitación Especializada -->
+            <div class="caso-container">
+                <div class="caso-header">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h2>Necesidad de Capacitación Especializada</h2>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="caso-content">
+                    <div class="caso-intro">
+                        <div class="caso-intro-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="caso-intro-text">
+                            <p>La atención efectiva a víctimas de violencia, especialmente en casos diferenciados, requiere que el personal de las instituciones involucradas reciba capacitación especializada y continua, que les permita desarrollar competencias específicas para cada tipo de caso.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="caso-grid">
+                        <div class="caso-section">
+                            <div class="caso-section-header">
+                                <h3><i class="fas fa-graduation-cap"></i> Áreas de Capacitación</h3>
+                            </div>
+                            <div class="caso-section-content">
+                                <ul class="caso-lista">
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Enfoque centrado en la víctima y trauma-informado</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Abordaje intercultural y competencias lingüísticas</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Atención a niñas, niños y adolescentes víctimas de violencia</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Intervención en casos de violencia sexual</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Accesibilidad y atención a personas con discapacidad</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="caso-section">
+                            <div class="caso-section-header">
+                                <h3><i class="fas fa-cogs"></i> Estrategias de Capacitación</h3>
+                            </div>
+                            <div class="caso-section-content">
+                                <ul class="procedure-list">
+                                    <li class="procedure-item">
+                                        <h4>Formación Inicial</h4>
+                                        <p>Programa básico obligatorio para todo el personal que atiende casos de violencia</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Especialización por Áreas</h4>
+                                        <p>Capacitación específica según el tipo de atención que brinda cada servicio</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Actualización Periódica</h4>
+                                        <p>Programas de formación continua para incorporar nuevos conocimientos y buenas prácticas</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Intercambio de Experiencias</h4>
+                                        <p>Espacios de diálogo entre operadores para compartir experiencias y lecciones aprendidas</p>
+                                    </li>
+                                    <li class="procedure-item">
+                                        <h4>Supervisión y Acompañamiento</h4>
+                                        <p>Mecanismos de monitoreo y retroalimentación para asegurar la aplicación efectiva de lo aprendido</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
             
             <div class="navigation-buttons">
                 <a href="disposiciones.html" class="nav-button back">
@@ -686,7 +717,7 @@
         </footer>
     </div>
     
-    <a href="#" class="back-to-top" style="display: none;">
+    <a href="#" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </a>
     

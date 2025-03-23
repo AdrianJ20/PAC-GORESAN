@@ -117,4 +117,51 @@ document.addEventListener('DOMContentLoaded', function() {
             window.print();
         });
     });
+    
+    // Responsibility sections collapsible functionality
+    const responsibilitySections = document.querySelectorAll('.responsibility-section');
+    
+    if (responsibilitySections.length > 0) {
+        // Set first section as active by default
+        responsibilitySections[0].classList.add('active');
+        
+        responsibilitySections.forEach(section => {
+            const header = section.querySelector('.responsibility-header');
+            
+            header.addEventListener('click', () => {
+                section.classList.toggle('active');
+            });
+        });
+    }
+    
+    // Disposiciones sections collapsible functionality
+    const disposicionSections = document.querySelectorAll('.disposicion-section');
+    
+    if (disposicionSections.length > 0) {
+        // Set first section as active by default
+        disposicionSections[0].classList.add('active');
+        
+        disposicionSections.forEach(section => {
+            const header = section.querySelector('.disposicion-header');
+            
+            header.addEventListener('click', () => {
+                section.classList.toggle('active');
+            });
+        });
+    }
+    
+    // Casos sections collapsible functionality
+    const casoSections = document.querySelectorAll('.caso-container');
+    
+    if (casoSections.length > 0) {
+        casoSections.forEach(section => {
+            const header = section.querySelector('.caso-header');
+            
+            if (header) {
+                header.addEventListener('click', () => {
+                    section.classList.toggle('active');
+                });
+            }
+        });
+    }
 });

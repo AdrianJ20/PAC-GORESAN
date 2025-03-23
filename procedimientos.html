@@ -41,7 +41,7 @@
                 <li class="nav-item"><a href="asistencia-juridica.html" class="nav-link">Asistencia Jurídica</a></li>
                 <li class="nav-item"><a href="servicios.html" class="nav-link">Servicios de Atención</a></li>
                 <li class="nav-item"><a href="salud.html" class="nav-link">Servicios de Salud</a></li>
-                <li class="nav-item"><a href="procedimientos.html" class="nav-link">Procedimientos Operativos</a></li>
+                <li class="nav-item"><a href="procedimientos.html" class="nav-link active">Procedimientos Operativos</a></li>
                 <li class="nav-item"><a href="ruta-atencion.html" class="nav-link">Ruta de Atención</a></li>
             </ul>
         </nav>
@@ -60,220 +60,529 @@
                 <p>Los procedimientos operativos establecen los pasos concretos para la implementación del protocolo, detallando las acciones que cada institución debe realizar para garantizar una atención eficaz, oportuna e integral a las víctimas de violencia.</p>
             </div>
             
-            <div class="procedures-menu">
-                <h2>Índice de Procedimientos</h2>
-                <ul class="procedures-list">
-                    <li><a href="#valoracion"><i class="fas fa-clipboard-check"></i> Procedimiento de Valoración, Categorización y Gestión del Riesgo</a></li>
-                    <li><a href="#proteccion"><i class="fas fa-shield-alt"></i> Procedimiento en la Etapa de Protección</a></li>
-                    <li><a href="#seguimiento"><i class="fas fa-search"></i> Procedimiento para el Seguimiento y Ejecución de Medidas de Protección</a></li>
-                    <li><a href="#agotamiento"><i class="fas fa-brain"></i> Procedimiento para la Prevención del Agotamiento Profesional</a></li>
-                </ul>
+            <div class="procedures-tabs">
+                <div class="procedures-tab-headers">
+                    <a href="#valoracion" class="tab-header active">
+                        <div class="tab-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="tab-title">Valoración y Gestión del Riesgo</div>
+                    </a>
+                    <a href="#proteccion" class="tab-header">
+                        <div class="tab-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="tab-title">Etapa de Protección</div>
+                    </a>
+                    <a href="#seguimiento" class="tab-header">
+                        <div class="tab-icon"><i class="fas fa-search"></i></div>
+                        <div class="tab-title">Seguimiento y Ejecución</div>
+                    </a>
+                    <a href="#agotamiento" class="tab-header">
+                        <div class="tab-icon"><i class="fas fa-brain"></i></div>
+                        <div class="tab-title">Prevención del Agotamiento</div>
+                    </a>
+                </div>
             </div>
             
-            <section id="valoracion" class="procedure-section">
-                <h2><i class="fas fa-clipboard-check"></i> Procedimiento Operativo en la Etapa de Valoración, Categorización y Gestión del Riesgo</h2>
+            <section id="valoracion" class="procedure-section active">
+                <div class="procedure-header">
+                    <div class="procedure-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h2>Procedimiento Operativo en la Etapa de Valoración, Categorización y Gestión del Riesgo</h2>
+                </div>
                 
-                <div class="procedure-steps">
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">1</div>
-                        <h3>Identificación del caso</h3>
-                        <p>La persona afectada por hechos de violencia puede acudir directamente a cualquiera de las instituciones que forman parte del sistema especializado de justicia: Comisaría, Centro Emergencia Mujer (CEM), Ministerio Público o Poder Judicial.</p>
-                        <div class="procedure-note">
-                            <i class="fas fa-lightbulb"></i> Importante: Cuando la persona acude a una institución, esta debe acogerla de manera inmediata sin necesidad de derivarla a otra instancia, evitando la revictimización.
+                <div class="procedure-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>01</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Identificación del caso</h3>
+                            <div class="timeline-body">
+                                <p>La persona afectada por hechos de violencia puede acudir directamente a cualquiera de las instituciones que forman parte del sistema especializado de justicia: Comisaría, Centro Emergencia Mujer (CEM), Ministerio Público o Poder Judicial.</p>
+                                <div class="timeline-note">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <p>Cuando la persona acude a una institución, esta debe acogerla de manera inmediata sin necesidad de derivarla a otra instancia, evitando la revictimización.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">2</div>
-                        <h3>Valoración inicial del riesgo</h3>
-                        <p>El personal que atiende el caso debe realizar una valoración inicial del riesgo utilizando las fichas estandarizadas aprobadas por las instituciones competentes. Esta valoración determinará el nivel de riesgo (leve, moderado o severo) y permitirá priorizar la atención según la gravedad.</p>
-                        <ul>
-                            <li>Riesgo leve: Medidas de monitoreo regular</li>
-                            <li>Riesgo moderado: Medidas de protección frecuentes</li>
-                            <li>Riesgo severo: Medidas inmediatas y continuas de protección</li>
-                        </ul>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>02</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Valoración inicial del riesgo</h3>
+                            <div class="timeline-body">
+                                <p>El personal que atiende el caso debe realizar una valoración inicial del riesgo utilizando las fichas estandarizadas aprobadas por las instituciones competentes. Esta valoración determinará el nivel de riesgo (leve, moderado o severo) y permitirá priorizar la atención según la gravedad.</p>
+                                <div class="timeline-risk-levels">
+                                    <div class="risk-level risk-low">
+                                        <div class="risk-icon"><i class="fas fa-check-circle"></i></div>
+                                        <div class="risk-text">
+                                            <h4>Riesgo leve</h4>
+                                            <p>Medidas de monitoreo regular</p>
+                                        </div>
+                                    </div>
+                                    <div class="risk-level risk-medium">
+                                        <div class="risk-icon"><i class="fas fa-exclamation-circle"></i></div>
+                                        <div class="risk-text">
+                                            <h4>Riesgo moderado</h4>
+                                            <p>Medidas de protección frecuentes</p>
+                                        </div>
+                                    </div>
+                                    <div class="risk-level risk-high">
+                                        <div class="risk-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                                        <div class="risk-text">
+                                            <h4>Riesgo severo</h4>
+                                            <p>Medidas inmediatas y continuas</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">3</div>
-                        <h3>Categorización de casos</h3>
-                        <p>Los casos se categorizarán según el tipo de violencia, la relación con el agresor, la frecuencia e intensidad de los episodios, los factores de vulnerabilidad, entre otros. La categorización permitirá diseñar estrategias de intervención específicas para cada situación.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>03</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Categorización de casos</h3>
+                            <div class="timeline-body">
+                                <p>Los casos se categorizarán según el tipo de violencia, la relación con el agresor, la frecuencia e intensidad de los episodios, los factores de vulnerabilidad, entre otros. La categorización permitirá diseñar estrategias de intervención específicas para cada situación.</p>
+                                <div class="timeline-categories">
+                                    <div class="category-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Tipo de violencia</span>
+                                    </div>
+                                    <div class="category-item">
+                                        <i class="fas fa-users"></i>
+                                        <span>Relación con agresor</span>
+                                    </div>
+                                    <div class="category-item">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Frecuencia e intensidad</span>
+                                    </div>
+                                    <div class="category-item">
+                                        <i class="fas fa-user-shield"></i>
+                                        <span>Factores de vulnerabilidad</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">4</div>
-                        <h3>Elaboración del plan de seguridad</h3>
-                        <p>De acuerdo con el nivel de riesgo identificado, se elaborará un plan de seguridad personalizado que incluirá medidas concretas para proteger a la víctima. Este plan debe construirse en conjunto con la persona afectada, respetando su autonomía y considerando su contexto específico.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>04</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Elaboración del plan de seguridad</h3>
+                            <div class="timeline-body">
+                                <p>De acuerdo con el nivel de riesgo identificado, se elaborará un plan de seguridad personalizado que incluirá medidas concretas para proteger a la víctima. Este plan debe construirse en conjunto con la persona afectada, respetando su autonomía y considerando su contexto específico.</p>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">5</div>
-                        <h3>Gestión de redes de apoyo</h3>
-                        <p>Se identificarán y activarán redes de apoyo familiar, comunitario e institucional que puedan brindar acompañamiento y protección a la persona afectada. Estas redes son fundamentales para fortalecer los factores de protección frente a nuevos episodios de violencia.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>05</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Gestión de redes de apoyo</h3>
+                            <div class="timeline-body">
+                                <p>Se identificarán y activarán redes de apoyo familiar, comunitario e institucional que puedan brindar acompañamiento y protección a la persona afectada. Estas redes son fundamentales para fortalecer los factores de protección frente a nuevos episodios de violencia.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="flow-diagram">
-                    <h3>Diagrama de flujo del proceso de valoración de riesgo</h3>
-                    <div class="diagram-description">
+                <div class="procedure-diagram">
+                    <div class="diagram-header">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>Diagrama de flujo del proceso de valoración de riesgo</h3>
+                    </div>
+                    <div class="diagram-body">
                         <p>La valoración del riesgo es un proceso continuo que se actualiza según la evolución del caso y puede determinar cambios en las medidas de protección implementadas.</p>
+                        <div class="diagram-flow">
+                            <div class="flow-step">Identificación</div>
+                            <i class="fas fa-arrow-right"></i>
+                            <div class="flow-step">Evaluación</div>
+                            <i class="fas fa-arrow-right"></i>
+                            <div class="flow-step">Categorización</div>
+                            <i class="fas fa-arrow-right"></i>
+                            <div class="flow-step">Plan de seguridad</div>
+                            <i class="fas fa-arrow-right"></i>
+                            <div class="flow-step">Seguimiento</div>
+                        </div>
                     </div>
                 </div>
             </section>
             
             <section id="proteccion" class="procedure-section">
-                <h2><i class="fas fa-shield-alt"></i> Procedimiento Operativo en la Etapa de Protección</h2>
+                <div class="procedure-header">
+                    <div class="procedure-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h2>Procedimiento Operativo en la Etapa de Protección</h2>
+                </div>
                 
-                <div class="procedure-steps">
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">1</div>
-                        <h3>Implementación de medidas de protección inmediatas</h3>
-                        <p>Cuando el caso es calificado como de riesgo severo, se implementarán medidas de protección inmediatas, sin esperar la formalización judicial. Estas pueden incluir:</p>
-                        <ul>
-                            <li>Separación preventiva del agresor</li>
-                            <li>Resguardo policial temporal</li>
-                            <li>Traslado a un hogar de refugio temporal</li>
-                            <li>Prohibición de acercamiento o comunicación</li>
-                        </ul>
+                <div class="procedure-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>01</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Implementación de medidas de protección inmediatas</h3>
+                            <div class="timeline-body">
+                                <p>Cuando el caso es calificado como de riesgo severo, se implementarán medidas de protección inmediatas, sin esperar la formalización judicial. Estas pueden incluir:</p>
+                                <div class="protection-measures">
+                                    <div class="measure-item">
+                                        <i class="fas fa-door-open"></i>
+                                        <span>Separación preventiva del agresor</span>
+                                    </div>
+                                    <div class="measure-item">
+                                        <i class="fas fa-user-shield"></i>
+                                        <span>Resguardo policial temporal</span>
+                                    </div>
+                                    <div class="measure-item">
+                                        <i class="fas fa-home"></i>
+                                        <span>Traslado a hogar de refugio</span>
+                                    </div>
+                                    <div class="measure-item">
+                                        <i class="fas fa-ban"></i>
+                                        <span>Prohibición de acercamiento</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">2</div>
-                        <h3>Solicitud de medidas de protección judiciales</h3>
-                        <p>El personal del Ministerio Público o la Policía Nacional deberá solicitar al Juzgado de Familia la emisión de medidas de protección en un plazo máximo de 24 horas en casos de riesgo severo, y de 48 horas en casos de riesgo leve o moderado.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>02</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Solicitud de medidas de protección judiciales</h3>
+                            <div class="timeline-body">
+                                <p>El personal del Ministerio Público o la Policía Nacional deberá solicitar al Juzgado de Familia la emisión de medidas de protección en un plazo máximo de 24 horas en casos de riesgo severo, y de 48 horas en los demás casos.</p>
+                                <div class="timeline-deadlines">
+                                    <div class="deadline severe">
+                                        <div class="deadline-time">24h</div>
+                                        <div class="deadline-text">Casos de riesgo severo</div>
+                                    </div>
+                                    <div class="deadline regular">
+                                        <div class="deadline-time">48h</div>
+                                        <div class="deadline-text">Otros casos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">3</div>
-                        <h3>Audiencia de evaluación de medidas de protección</h3>
-                        <p>El Juzgado de Familia convocará a una audiencia especial para evaluar las medidas de protección solicitadas. La no asistencia del denunciado no impide la realización de la audiencia. Las medidas se dictarán considerando:</p>
-                        <ul>
-                            <li>Los resultados de la ficha de valoración de riesgo</li>
-                            <li>Los antecedentes del denunciado</li>
-                            <li>La existencia de otros procesos anteriores</li>
-                            <li>La situación de vulnerabilidad de la víctima</li>
-                        </ul>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>03</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Audiencia y emisión de medidas</h3>
+                            <div class="timeline-body">
+                                <p>El Juzgado de Familia realizará una audiencia oral para evaluar el caso y emitir las medidas de protección y/o cautelares correspondientes. Estas medidas deberán ser proporcionales al riesgo identificado y considerar las necesidades específicas de la persona afectada.</p>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">4</div>
-                        <h3>Implementación y notificación de medidas de protección</h3>
-                        <p>Una vez dictadas las medidas de protección, estas deben ser implementadas de manera inmediata. El Juzgado notificará a las partes, a la Policía Nacional y a otras instituciones responsables de su ejecución. Las medidas de protección se mantienen vigentes hasta que sean modificadas o levantadas por la autoridad judicial.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>04</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Notificación y registro de medidas</h3>
+                            <div class="timeline-body">
+                                <p>Las medidas de protección serán notificadas de inmediato a todas las partes involucradas, incluyendo a la persona afectada, al denunciado y a las instituciones responsables de su ejecución. Asimismo, se registrarán en el sistema informático correspondiente para su seguimiento.</p>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">5</div>
-                        <h3>Articulación interinstitucional para la protección integral</h3>
-                        <p>La protección efectiva requiere la coordinación de diversas instituciones. Se establecerán canales de comunicación permanente entre la Policía Nacional, el Poder Judicial, el Ministerio Público, los Centros Emergencia Mujer y otras entidades para asegurar una respuesta articulada y eficaz.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>05</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Articulación para la ejecución de medidas</h3>
+                            <div class="timeline-body">
+                                <p>Las instituciones responsables de ejecutar las medidas de protección (Policía Nacional, CEM, MINSA, entre otras) deberán coordinar sus acciones para garantizar la efectividad de las mismas, estableciendo mecanismos de comunicación ágiles y permanentes.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="procedure-note">
-                    <i class="fas fa-exclamation-triangle"></i> <strong>Consideración de urgencia:</strong> En situaciones de flagrancia o alto riesgo para la vida o la integridad física de la víctima, los operadores están facultados para implementar medidas de protección inmediatas, comunicando posteriormente a la autoridad judicial.
+                <div class="procedure-alert">
+                    <div class="alert-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h4>Actuación en casos de flagrancia</h4>
+                        <p>En situaciones de flagrancia, la Policía Nacional está facultada para ingresar al domicilio y detener inmediatamente al agresor, sin necesidad de orden judicial previa, a fin de salvaguardar la integridad de la víctima.</p>
+                    </div>
                 </div>
             </section>
             
             <section id="seguimiento" class="procedure-section">
-                <h2><i class="fas fa-search"></i> Procedimiento Operativo para el Seguimiento y Ejecución de las Medidas de Protección y Cautelares</h2>
+                <div class="procedure-header">
+                    <div class="procedure-icon"><i class="fas fa-search"></i></div>
+                    <h2>Procedimiento Operativo para el Seguimiento y Ejecución de las Medidas de Protección y Cautelares</h2>
+                </div>
                 
-                <div class="procedure-steps">
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">1</div>
-                        <h3>Registro central de medidas de protección</h3>
-                        <p>Todas las medidas de protección dictadas serán registradas en una base de datos centralizada que permita su seguimiento por parte de las instituciones responsables. Este registro facilitará la comunicación interinstitucional y el monitoreo de la efectividad de las medidas.</p>
+                <div class="procedure-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>01</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Registro central de medidas de protección</h3>
+                            <div class="timeline-body">
+                                <p>Todas las medidas de protección dictadas serán registradas en una base de datos centralizada que permita su seguimiento por parte de las instituciones responsables. Este registro facilitará la comunicación interinstitucional y el monitoreo de la efectividad de las medidas.</p>
+                                <div class="timeline-database">
+                                    <i class="fas fa-database"></i>
+                                    <div class="database-elements">
+                                        <div class="database-item">Datos personales</div>
+                                        <div class="database-item">Medidas dictadas</div>
+                                        <div class="database-item">Nivel de riesgo</div>
+                                        <div class="database-item">Instituciones responsables</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">2</div>
-                        <h3>Visitas de verificación y supervisión</h3>
-                        <p>La Policía Nacional, en coordinación con otros operadores, realizará visitas periódicas de verificación para supervisar el cumplimiento de las medidas de protección. La frecuencia de estas visitas estará determinada por el nivel de riesgo evaluado:</p>
-                        <ul>
-                            <li>Riesgo severo: Visitas cada 3-5 días</li>
-                            <li>Riesgo moderado: Visitas cada 15 días</li>
-                            <li>Riesgo leve: Visitas mensuales</li>
-                        </ul>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>02</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Visitas de verificación y supervisión</h3>
+                            <div class="timeline-body">
+                                <p>La Policía Nacional, en coordinación con otros operadores, realizará visitas periódicas de verificación para supervisar el cumplimiento de las medidas de protección. La frecuencia de estas visitas estará determinada por el nivel de riesgo evaluado:</p>
+                                <div class="timeline-frequency">
+                                    <div class="frequency-item high">
+                                        <div class="frequency-risk">Riesgo severo</div>
+                                        <div class="frequency-time">Cada 3-5 días</div>
+                                    </div>
+                                    <div class="frequency-item medium">
+                                        <div class="frequency-risk">Riesgo moderado</div>
+                                        <div class="frequency-time">Cada 15 días</div>
+                                    </div>
+                                    <div class="frequency-item low">
+                                        <div class="frequency-risk">Riesgo leve</div>
+                                        <div class="frequency-time">Mensual</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">3</div>
-                        <h3>Sistema de alerta temprana</h3>
-                        <p>Se implementará un sistema de alerta temprana que permita a la víctima comunicar rápidamente cualquier incumplimiento de las medidas de protección o la aparición de nuevas situaciones de riesgo. Este sistema puede incluir dispositivos de comunicación directa, botones de pánico o aplicaciones móviles.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>03</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Sistema de alerta temprana</h3>
+                            <div class="timeline-body">
+                                <p>Se implementará un sistema de alerta temprana que permita a la víctima comunicar rápidamente cualquier incumplimiento de las medidas de protección o la aparición de nuevas situaciones de riesgo. Este sistema puede incluir dispositivos de comunicación directa, botones de pánico o aplicaciones móviles.</p>
+                                <div class="alert-system">
+                                    <div class="alert-option">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>Aplicación móvil</span>
+                                    </div>
+                                    <div class="alert-option">
+                                        <i class="fas fa-bell"></i>
+                                        <span>Botón de pánico</span>
+                                    </div>
+                                    <div class="alert-option">
+                                        <i class="fas fa-phone-alt"></i>
+                                        <span>Línea directa</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">4</div>
-                        <h3>Protocolos de actuación ante incumplimientos</h3>
-                        <p>Se establecerán protocolos específicos de actuación ante el incumplimiento de las medidas de protección. Estos incluirán:</p>
-                        <ul>
-                            <li>Intervención inmediata de la Policía Nacional</li>
-                            <li>Comunicación al Juzgado que dictó las medidas</li>
-                            <li>Revaloración del riesgo y reforzamiento de medidas si es necesario</li>
-                            <li>Proceso por desobediencia a la autoridad contra el agresor</li>
-                        </ul>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>04</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Protocolos de actuación ante incumplimientos</h3>
+                            <div class="timeline-body">
+                                <p>Se establecerán protocolos específicos de actuación ante el incumplimiento de las medidas de protección. Estos incluirán:</p>
+                                <div class="protocol-steps">
+                                    <div class="protocol-step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-text">Intervención inmediata de la Policía Nacional</div>
+                                    </div>
+                                    <div class="protocol-step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-text">Comunicación al Juzgado que dictó las medidas</div>
+                                    </div>
+                                    <div class="protocol-step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-text">Revaloración del riesgo y reforzamiento de medidas</div>
+                                    </div>
+                                    <div class="protocol-step">
+                                        <div class="step-number">4</div>
+                                        <div class="step-text">Proceso por desobediencia a la autoridad</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">5</div>
-                        <h3>Reevaluación periódica de las medidas</h3>
-                        <p>Las medidas de protección serán reevaluadas periódicamente para determinar su efectividad y la necesidad de modificarlas, reforzarlas o levantarlas según la evolución del riesgo. Esta reevaluación se realizará al menos cada tres meses o antes si existen circunstancias que lo justifiquen.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>05</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Reevaluación periódica de las medidas</h3>
+                            <div class="timeline-body">
+                                <p>Las medidas de protección serán reevaluadas periódicamente para determinar su efectividad y la necesidad de modificarlas, reforzarlas o levantarlas según la evolución del riesgo. Esta reevaluación se realizará al menos cada tres meses o antes si existen circunstancias que lo justifiquen.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="procedure-note">
-                    <i class="fas fa-clipboard"></i> <strong>Elaboración de informes:</strong> Cada institución elaborará informes periódicos sobre el cumplimiento de las medidas de protección bajo su responsabilidad, los cuales serán remitidos al Juzgado de Familia correspondiente y compartidos en las mesas de trabajo interinstitucionales.
+                <div class="procedure-report">
+                    <div class="report-icon">
+                        <i class="fas fa-clipboard"></i>
+                    </div>
+                    <div class="report-content">
+                        <h4>Elaboración de informes</h4>
+                        <p>Cada institución elaborará informes periódicos sobre el cumplimiento de las medidas de protección bajo su responsabilidad, los cuales serán remitidos al Juzgado de Familia correspondiente y compartidos en las mesas de trabajo interinstitucionales.</p>
+                    </div>
                 </div>
             </section>
             
             <section id="agotamiento" class="procedure-section">
-                <h2><i class="fas fa-brain"></i> Procedimiento Operativo para la Prevención y Afronte del Síndrome de Agotamiento Profesional</h2>
+                <div class="procedure-header">
+                    <div class="procedure-icon"><i class="fas fa-brain"></i></div>
+                    <h2>Procedimiento Operativo para la Prevención y Afronte del Síndrome de Agotamiento Profesional</h2>
+                </div>
                 
-                <div class="procedure-steps">
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">1</div>
-                        <h3>Detección de signos de agotamiento profesional</h3>
-                        <p>Las instituciones implementarán mecanismos para la detección temprana de signos de agotamiento profesional (burnout) en el personal que atiende a víctimas de violencia. Estos incluyen:</p>
-                        <ul>
-                            <li>Fatiga constante y desmotivación</li>
-                            <li>Distanciamiento emocional y despersonalización</li>
-                            <li>Irritabilidad e impaciencia</li>
-                            <li>Alteración del sueño o apetito</li>
-                            <li>Disminución de la empatía hacia las víctimas</li>
-                        </ul>
+                <div class="procedure-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>01</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Detección de signos de agotamiento profesional</h3>
+                            <div class="timeline-body">
+                                <p>Las instituciones implementarán mecanismos para la detección temprana de signos de agotamiento profesional (burnout) en el personal que atiende a víctimas de violencia. Estos incluyen:</p>
+                                <div class="burnout-signs">
+                                    <div class="sign-item">
+                                        <i class="fas fa-battery-quarter"></i>
+                                        <span>Fatiga constante y desmotivación</span>
+                                    </div>
+                                    <div class="sign-item">
+                                        <i class="fas fa-user-slash"></i>
+                                        <span>Distanciamiento emocional</span>
+                                    </div>
+                                    <div class="sign-item">
+                                        <i class="fas fa-angry"></i>
+                                        <span>Irritabilidad e impaciencia</span>
+                                    </div>
+                                    <div class="sign-item">
+                                        <i class="fas fa-bed"></i>
+                                        <span>Alteración del sueño o apetito</span>
+                                    </div>
+                                    <div class="sign-item">
+                                        <i class="fas fa-heart-broken"></i>
+                                        <span>Disminución de la empatía</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">2</div>
-                        <h3>Programa de autocuidado y cuidado colectivo</h3>
-                        <p>Cada institución desarrollará e implementará un programa de autocuidado y cuidado colectivo que incluya estrategias para:</p>
-                        <ul>
-                            <li>Gestión del estrés y las emociones</li>
-                            <li>Establecimiento de límites saludables</li>
-                            <li>Técnicas de relajación y mindfulness</li>
-                            <li>Actividades recreativas y de integración</li>
-                        </ul>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>02</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Programa de autocuidado y cuidado colectivo</h3>
+                            <div class="timeline-body">
+                                <p>Cada institución desarrollará e implementará un programa de autocuidado y cuidado colectivo que incluya estrategias para:</p>
+                                <div class="self-care">
+                                    <div class="care-item">
+                                        <div class="care-icon"><i class="fas fa-balance-scale"></i></div>
+                                        <div class="care-text">Gestión del estrés y emociones</div>
+                                    </div>
+                                    <div class="care-item">
+                                        <div class="care-icon"><i class="fas fa-border-all"></i></div>
+                                        <div class="care-text">Establecimiento de límites saludables</div>
+                                    </div>
+                                    <div class="care-item">
+                                        <div class="care-icon"><i class="fas fa-spa"></i></div>
+                                        <div class="care-text">Técnicas de relajación y mindfulness</div>
+                                    </div>
+                                    <div class="care-item">
+                                        <div class="care-icon"><i class="fas fa-hiking"></i></div>
+                                        <div class="care-text">Actividades recreativas y de integración</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">3</div>
-                        <h3>Espacios de contención emocional</h3>
-                        <p>Se establecerán espacios regulares de contención emocional, individuales y grupales, facilitados por profesionales especializados en salud mental, para que el personal pueda procesar las experiencias difíciles y recibir apoyo psicológico.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>03</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Espacios de contención emocional</h3>
+                            <div class="timeline-body">
+                                <p>Se establecerán espacios regulares de contención emocional, individuales y grupales, facilitados por profesionales especializados en salud mental, para que el personal pueda procesar las experiencias difíciles y recibir apoyo psicológico.</p>
+                                <div class="support-spaces">
+                                    <div class="space-item">
+                                        <i class="fas fa-user"></i>
+                                        <span>Contención individual</span>
+                                    </div>
+                                    <div class="space-item">
+                                        <i class="fas fa-users"></i>
+                                        <span>Grupos de apoyo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">4</div>
-                        <h3>Rotación de funciones y distribución equitativa de carga laboral</h3>
-                        <p>Se implementará un sistema de rotación periódica de funciones y redistribución equitativa de la carga laboral, especialmente en casos de alta complejidad, para prevenir la sobrecarga y el desgaste emocional del personal.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>04</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Rotación de funciones y distribución equitativa de carga laboral</h3>
+                            <div class="timeline-body">
+                                <p>Se implementará un sistema de rotación periódica de funciones y redistribución equitativa de la carga laboral, especialmente en casos de alta complejidad, para prevenir la sobrecarga y el desgaste emocional del personal.</p>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="procedure-step">
-                        <div class="procedure-step-number">5</div>
-                        <h3>Formación continua y supervisión</h3>
-                        <p>Se garantizará el acceso a formación continua y espacios de supervisión profesional que permitan al personal desarrollar competencias técnicas y emocionales para el manejo adecuado de casos de violencia.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>05</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Formación continua y supervisión</h3>
+                            <div class="timeline-body">
+                                <p>Se garantizará el acceso a formación continua y espacios de supervisión profesional que permitan al personal desarrollar competencias técnicas y emocionales para el manejo adecuado de casos de violencia.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="procedure-note">
-                    <i class="fas fa-heart"></i> <strong>Compromiso institucional:</strong> Las instituciones deben asumir el compromiso de priorizar el bienestar de su personal como parte fundamental para garantizar un servicio de calidad a las víctimas de violencia. Esto incluye asignar recursos específicos para las estrategias de cuidado y prevención del agotamiento profesional.
+                <div class="procedure-commitment">
+                    <div class="commitment-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="commitment-content">
+                        <h4>Compromiso institucional</h4>
+                        <p>Las instituciones deben asumir el compromiso de priorizar el bienestar de su personal como parte fundamental para garantizar un servicio de calidad a las víctimas de violencia. Esto incluye asignar recursos específicos para las estrategias de cuidado y prevención del agotamiento profesional.</p>
+                    </div>
                 </div>
             </section>
             
@@ -304,6 +613,77 @@
         <i class="fas fa-arrow-up"></i>
     </a>
     
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu móvil toggle
+            const mobileToggle = document.querySelector('.mobile-nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    this.querySelector('i').classList.toggle('fa-bars');
+                    this.querySelector('i').classList.toggle('fa-times');
+                });
+            }
+            
+            // Botón de volver arriba
+            const backToTop = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.display = 'flex';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+            
+            if (backToTop) {
+                backToTop.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Funcionamiento de los tabs de procedimientos
+            const tabHeaders = document.querySelectorAll('.tab-header');
+            const procedureSections = document.querySelectorAll('.procedure-section');
+            
+            if (tabHeaders.length > 0) {
+                tabHeaders.forEach(tabHeader => {
+                    tabHeader.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Eliminar clase active de todos los headers
+                        tabHeaders.forEach(header => header.classList.remove('active'));
+                        
+                        // Eliminar clase active de todas las secciones
+                        procedureSections.forEach(section => section.classList.remove('active'));
+                        
+                        // Añadir clase active al tab clickeado
+                        this.classList.add('active');
+                        
+                        // Obtener el id de la sección correspondiente
+                        const targetId = this.getAttribute('href').substring(1);
+                        
+                        // Mostrar la sección correspondiente
+                        document.getElementById(targetId).classList.add('active');
+                        
+                        // Scroll hacia la sección con un pequeño offset para evitar que quede debajo del header
+                        const headerOffset = 100;
+                        const targetPosition = document.getElementById(targetId).getBoundingClientRect().top;
+                        const offsetPosition = targetPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
